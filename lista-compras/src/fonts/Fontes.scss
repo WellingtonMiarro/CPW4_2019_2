@@ -1,0 +1,12 @@
+@font-face{
+    font-family: 'item lista';
+    src:url(./IndieFlower-Regular.ttf)
+}
+
+@font-face{
+    font-family: 'principal';
+    src:url(./Livvic-Regular.ttf)
+}
+
+$fonte-principal:'principal';
+$fonte-lista:'item lista';
