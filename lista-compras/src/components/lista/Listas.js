@@ -18,10 +18,11 @@ class Listas extends Component {
     this.service = new ListaService();
   }
 
-  componentDidMount(){
+  async componentDidMount(){
 
     //const listasRecuperadas 
-    const listas = this.service.recuperarListas();
+    const listas = await this.service.recuperarListas();
+    console.log(listas);
     this.setState({listas}); //this.setState({listas: listasRecuperadas });
    
   }
