@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 
 import  Menu from '../menu/Menu';
 import logo from '../../img/logo.png';
+import adicionar from '../../img/adicionar.png'
 
 import ListaService from '../../services/ListaService';
+
+import './Lista.scss';
 class Listas extends Component {
   constructor(){
     /** 
@@ -22,7 +25,6 @@ class Listas extends Component {
 
     //const listasRecuperadas 
     const listas = await this.service.recuperarListas();
-    console.log(listas);
     this.setState({listas}); //this.setState({listas: listasRecuperadas });
    
   }
@@ -30,10 +32,10 @@ class Listas extends Component {
 
   render() {
     const listas = this.state.listas.map(lista =>(
-      <li key={lista._id}>{lista.nome}</li>
+      <div className="item" key={lista._id}>{lista.nome}</div>
     ));
     return (
-      <div>
+      <div >
         <Menu 
         logo={logo}
         paginaAnterior="/"
@@ -42,9 +44,17 @@ class Listas extends Component {
         <div className="conteiner">
             <div>
               <h2>Minhas Listas</h2>
-              <ul>
+              <div id="listagem">
                   {listas}
-              </ul>
+              </div>
+
+              <div id="areaBotao">
+                <div id="botaoNovaLista">
+                   <img src={adicionar} alt="Nova Lista" />
+                </div>
+                
+              </div>
+
             </div>
         </div>   
         
