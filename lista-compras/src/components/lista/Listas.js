@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import  Menu from '../menu/Menu';
 import logo from '../../img/logo.png';
@@ -15,16 +16,16 @@ class Listas extends Component {
     */
   super();
 
-    this.state = {
+    this.state = { // Sao os dados manipulados que serao exibidos
       listas: []
     }
-    this.service = new ListaService();
+    this.service = new ListaService(); //acessa o backend
   }
 
-  async componentDidMount(){
+  async componentDidMount(){ // foi renderizado: é fazer aparecer os dados na tela 
 
     //const listasRecuperadas 
-    const listas = await this.service.recuperarListas();
+    const listas = await this.service.recuperarListas(); // puxar os dados do backend e colocar no .state (array listas)
     this.setState({listas}); //this.setState({listas: listasRecuperadas });
    
   }
@@ -43,14 +44,30 @@ class Listas extends Component {
 
         <div className="conteiner">
             <div>
-              <h2>Minhas Listas</h2>
+              {
+                /**
+                 * O operador '&& -> entao faça isso aqui...' atua como um operador de ligação logica  e o codigo de apresentação a ser renderizado
+                 */
+              !this.state.listas &&
+               <h2>Minhas Listas</h2>
+              }
+
+              {
+                this.state.listas &&
+               <p id="mensagemNenhumaLista">
+                  Cadastre sua primeira lista de Compras, Clique no botão abaixo!
+               </p>
+              }
+
               <div id="listagem">
                   {listas}
               </div>
 
               <div id="areaBotao">
                 <div id="botaoNovaLista">
-                   <img src={adicionar} alt="Nova Lista" />
+                  <Link to="/criarlista">
+                    <img src={adicionar} alt="Nova Lista" />
+                   </Link>
                 </div>
                 
               </div>

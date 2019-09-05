@@ -8,6 +8,13 @@
         font-family: $fonte-principal;
         text-align: center;
     }
+    #mensagemNenhumaLista{
+        color: $cor-menu;
+        font-family: $fonte-principal;
+        text-align: center;
+        margin-top: 40px;
+        font-size: 20px;
+    }
    #listagem{
        margin: 6px;
        
@@ -34,4 +41,37 @@
             }
         }
     }
+}
+
+#formNovaLista{
+    padding: 10px;
+    
+
+    input{
+        display: block;
+        margin: auto;
+
+        &[type=text]{
+            width: 80%;
+            height: 38px;
+            font-size: 100%;
+            border: 1px solid #aaaaaa;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-family: $fonte-principal;
+            padding: 5px 10px;
+        }
+
+        &[type=submit]{
+            width: 40%;
+            padding: 16px;
+            background-color: $cor-menu;
+            color: white;
+            border-radius: 6px;
+            font-size: 120%;
+            font-family: $fonte-principal;
+            
+        }
+    }
+
 }
