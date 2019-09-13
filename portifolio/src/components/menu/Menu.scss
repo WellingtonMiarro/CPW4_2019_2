@@ -1,0 +1,42 @@
+@import '../../Cores';
+@import '../../fonts/Fontes';
+
+.menu {
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $cor-menu;
+    padding-top: 20px;
+
+    span{
+        color: $cor-fundo;
+        padding-left: 12px;
+        font-size: 18px;
+        font-family: $fonte-titulo;
+    }
+
+    ul{
+        padding-top: 40px;
+    }
+
+    ul li {
+        padding: 6px;
+        text-decoration: none;
+        font-size: 20px;
+        display: block;
+        font-family: $fonte-titulo;
+
+        a{
+            color: white;
+        }
+
+        a:link{
+            text-decoration:none;
+        }
+      }
+
+  }
+
+

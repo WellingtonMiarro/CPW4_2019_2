@@ -1,0 +1,12 @@
+@font-face{
+    font-family: 'titulo';
+    src:url(./YeonSung-Regular.ttf)
+}
+
+@font-face{
+    font-family: 'principal';
+    src:url(./Amiri-Regular.ttf)
+}
+
+$fonte-principal:'principal';
+$fonte-titulo:'titulo';

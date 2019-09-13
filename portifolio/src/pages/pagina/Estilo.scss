@@ -1,0 +1,50 @@
+@import '../../Cores';
+@import '../../fonts/Fontes';
+
+.main{
+    margin-left: 238px;
+
+    #cv{
+        width: 6%; 
+
+    }
+
+    img{
+        width: 5%; 
+        padding: 1%;
+        transition: all .5s;
+        border: 10px solid transparent;
+       
+    }
+    img:hover{
+        border: 6px solid $cor-efeito;
+        border-radius: 50%;
+       
+    }
+
+    h1{
+        text-align: center;
+        font-family: $fonte-principal;
+    }
+    h2{
+        margin-left: 10px;
+        font-family: $fonte-principal;
+    }
+
+    p{
+        font-family: $fonte-principal;
+        font-size: 18px; 
+        margin-right: 30px;
+        text-align: justify;
+
+        a:link{
+            text-decoration:none;
+        }
+    }
+
+}
+
+
+
+
+
