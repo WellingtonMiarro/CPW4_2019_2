@@ -27,6 +27,10 @@
            border-radius: 6px;
            margin-bottom: 16px;
        }
+       a{
+           text-decoration: none;
+           color: $cor-titulo;
+       }
    }
    #areaBotao{
     margin: 6px;

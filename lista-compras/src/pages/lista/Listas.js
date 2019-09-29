@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import  Menu from '../../components/menu/Menu';
 import logo from '../../img/logo.png';
 import adicionar from '../../img/adicionar.png'
+import rotas from '../../constants/rotas';
 
 import ListaService from '../../services/ListaService';
 
@@ -31,9 +32,21 @@ class Listas extends Component {
   }
 
 
+  
   render() {
     const listas = this.state.listas.map(lista =>(
-      <div className="item" key={lista._id}>{lista.nome}</div>
+      <Link
+      //Cria um link que me redireciona  
+      to={
+        {
+          //passa qual link foi redirecionado
+          pathname: rotas.LISTA,
+          state:{lista}
+        }
+      } 
+      key={lista._id} >
+         <div className="item"> {lista.nome} </div>
+      </Link>
     ));
     return (
       <div >
