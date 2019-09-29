@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teste de renderização do camponente INICIO Verificar se a página Inicial e carregada adequadamente 1`] = `
+<div>
+  <h3>
+    Bem vindo ao app de aquecimento!
+  </h3>
+  <p>
+    Neste app, podemos ter um exemplo de como criar um app React básico.
+  </p>
+</div>
+`;
