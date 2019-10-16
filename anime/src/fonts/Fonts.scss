@@ -1,0 +1,17 @@
+@font-face{
+    font-family: 'titulo';
+    src:url(./SpecialElite-Regular.ttf)
+}
+
+@font-face{
+    font-family: 'principal';
+    src:url(./Khand-Regular.ttf)
+}
+@font-face{
+    font-family: 'anime';
+    src:url(./Arapey-Regular.ttf)
+}
+
+$fonte-principal:'principal';
+$fonte-titulo:'titulo';
+$fonte-anime:'anime';
