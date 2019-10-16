@@ -11,8 +11,8 @@ export default class ListaService {
         });
     }
 						 
-    async recuperarAnime(anime) { // Cadê o parâmetro que passa lá em cima???
-        let resposta = await this.api.get(anime.nome) // Coloca o parâmetro recebido dentro do .get
+    async recuperarAnime(anime) { 
+        let resposta = await this.api.get(anime.nome) 
         this.anime = resposta.data;
         return this.anime;
         
