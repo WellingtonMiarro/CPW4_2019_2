@@ -41,7 +41,6 @@ export default class CriarLista extends Component {
                     value={this.state.nome}
                     required
                     placeholder="Digite o nome da lista"
-
                     onChange={this.aoAlterarNome}
                     />
 
