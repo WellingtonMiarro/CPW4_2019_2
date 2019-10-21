@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import  Menu from '../../src/components/menu/Menu';
 import logo from '../../src/img/logo1.jpg';
 
-import ROTAS from '../../src/constants/rotas';
+import ROTAS from '../../src/constant/rotas';
 
 import './AnimEstilo.scss';
 export default class Inicio extends Component { 
@@ -20,7 +20,6 @@ export default class Inicio extends Component {
 
     consultar = (event) => { 
        event.preventDefault();
-
         const anime = this.state;
         this.props.history.push({ 
             pathname: ROTAS.LISTAANIME,

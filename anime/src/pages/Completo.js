@@ -40,7 +40,7 @@ export default class ListaAnime extends Component {
                 <Link
                     to={
                         {
-                            pathname: rotas.LISTAANIME,
+                            pathname: rotas.COMPLETO,
                             state: { anime }
                         }
                     }
@@ -48,7 +48,7 @@ export default class ListaAnime extends Component {
                     <div className="icon">
                         <img className="imagem" src={anime.image_url} />
                         <div className="text">{anime.title} </div>
-                        
+                        <div className="text">{anime.synopsis}</div>
                     </div>
                 </Link>
             ));
