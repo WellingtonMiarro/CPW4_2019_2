@@ -20,6 +20,7 @@ export default class Inicio extends Component {
 
     consultar = (event) => { 
        event.preventDefault();
+
         const anime = this.state;
         this.props.history.push({ 
             pathname: ROTAS.LISTAANIME,
