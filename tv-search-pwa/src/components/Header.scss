@@ -1,0 +1,21 @@
+@import '../Cores';
+@import '../fonts//Fontes';
+
+.header{
+    background-color: $cor1;
+    padding: 10px;
+
+    img{
+        width: 50px;
+        margin-right: 10px;
+    }
+    span{
+        color: white;
+        font-family:$fonte-decorativa;
+        font-size: 140%;
+        vertical-align: 10px; // valor possitivo ele sobe e valor negativo ele desce
+        //text-shadow: 2px 2px #55555; decora o texto 
+    }
+
+    
+}

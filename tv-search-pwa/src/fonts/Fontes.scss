@@ -1,0 +1,16 @@
+@font-face{
+    font-family: "decorativa";
+    src: url(./Kalam-Regular.ttf)
+}
+@font-face{
+    font-family: "padrao";
+    src: url(./Lato-Regular.ttf)
+}
+@font-face{
+    font-family: "negrito";
+    src: url(./Lato-Bold.ttf)
+}
+
+$fonte-decorativa:"decorativa";
+$fonte-padrao:"padrao";
+$fonte-negrito:"negrito";
