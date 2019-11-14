@@ -6,6 +6,8 @@ import imgDefault from '../img/imgDefault.png';
 import Header from '../components/Header';
 import SeriesService from '../services/SeriesService';
 
+import './Pesquisar.scss';
+
 export default class Pesquisar extends Component {
 
     constructor(){
@@ -24,7 +26,8 @@ export default class Pesquisar extends Component {
         // seta para true a flag carregando , sinalizzando que a animacao de loading deve ser exibida 
         this.setState({
             carregando: true,
-            textoPesquisa: consulta
+            textoPesquisa: consulta,
+            series: [] //nao exibi nada enquanro realiza a pesquisa 
         });
 
         this.service
@@ -85,8 +88,9 @@ export default class Pesquisar extends Component {
                     this.state.carregando && 
                     <div id="areaLoading">
                         <Loading 
+                        id="animacao"
                         type="spin"
-                        color= "blue"
+                        color= "#006992"
                         height="60px"
                         width="60px"
                         />
