@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import Loading from 'react-loading';
 
 import logo from '../img/logo.png';
@@ -45,6 +46,8 @@ export default class Pesquisar extends Component {
 
     render() {
         const {series, textoPesquisa} = this.state; 
+        console.log(series)
+
         const listaSerie = series.map(serie => {
         let imagem = imgDefault;
 
@@ -52,9 +55,31 @@ export default class Pesquisar extends Component {
                 imagem = serie.show.image.medium;
             }
        return (
-            <div key={serie.show.id} className="serie">    
-                <img src={imagem} alt="Cartaz da série"/>
-                <span>{serie.show.name}</span>
+            <div key={serie.show.id} className="serie"> 
+                <Link 
+                to={
+                   {
+                       pathname: '/serie',
+                       state: {serie, imagem}     
+                   } 
+                }>
+                    <img src={imagem} alt="Cartaz da série"/>
+                </Link>
+
+                <Link to={
+                   {
+                       pathname: '/serie',
+                       state: {serie}     
+                   } 
+                }>
+                    <span>{serie.show.name}</span>
+                </Link>
+
+                
+               
+               
+                
+
             </div>
         )});
         //coloca na minha condicao logica deixando o codigo mais legivel
@@ -89,8 +114,8 @@ export default class Pesquisar extends Component {
                     <div id="areaLoading">
                         <Loading 
                         id="animacao"
-                        type="spin"
-                        color= "#006992"
+                        type="cubes"
+                        color= "#FF4500"
                         height="60px"
                         width="60px"
                         />
@@ -100,7 +125,7 @@ export default class Pesquisar extends Component {
                  <div id="areaResultados">
                      {
                          (naoTemResultadoParaExibir && usuarioEstaPesquisando) && 
-                         <span>Nenhuma série encontrada :( </span>
+                         <span id="mensagemNaoEncontrada">Nenhuma série encontrada :( </span>
                      }
                      {listaSerie}
                  </div>
