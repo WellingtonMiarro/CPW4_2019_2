@@ -1,95 +1,124 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import  Menu from '../../components/menu/Menu';
+import Menu from '../../components/menu/Menu';
 import logo from '../../img/logo.png';
-import adicionar from '../../img/adicionar.png'
-import rotas from '../../constants/rotas';
-
 import ListaService from '../../services/ListaService';
-
 import './Lista.scss';
-class Listas extends Component {
-  constructor(){
-    /** 
-    Toda vez que criar um construtor em um componente react, 
-    lembre-se de invocar o construtor da classe mae Component na primeira linha de codigo
-    */
-  super();
+import adicionar from '../../img/adicionar.png';
+import apagar from '../../img/delete.png';
+import editar from '../../img/editar.png';
+import rotas from '../../constants/rotas';
+export default class Listas extends Component {
 
-    this.state = { // Sao os dados manipulados que serao exibidos
-      listas: []
-    }
-    this.service = new ListaService(); //acessa o backend
-  }
+    constructor() {
+        /**
+         * Toda vez que criar um construtor
+         * em um componente React, lembre-se
+         * de invocar o construtor da classe
+         * mãe Component na primeira linha de
+         * código.
+         */
+        super();
 
-  async componentDidMount(){ // foi renderizado: é fazer aparecer os dados na tela 
-
-    //const listasRecuperadas 
-    const listas = await this.service.recuperarListas(); // puxar os dados do backend e colocar no .state (array listas)
-    this.setState({listas}); //this.setState({listas: listasRecuperadas });
-   
-  }
-
-
-  
-  render() {
-    const listas = this.state.listas.map(lista =>(
-      <Link
-      //Cria um link que me redireciona  
-      to={
-        {
-          //passa qual link foi redirecionado
-          pathname: rotas.LISTA,
-          state:{lista}
+        this.state = {
+            listas: []
         }
-      } 
-      key={lista._id} >
-         <div className="item"> {lista.nome} </div>
-      </Link>
-    ));
-    return (
-      <div >
-        <Menu 
-        logo={logo}
-        paginaAnterior="/"
-        titulo="Lista de Compras"/>
 
-        <div className="conteiner">
-            <div>
-              {
-                /**
-                 * O operador '&& -> entao faça isso aqui...' atua como um operador de ligação logica  e o codigo de apresentação a ser renderizado
-                 */
-              !this.state.listas &&
-               <h2>Minhas Listas</h2>
-              }
+        this.service = new ListaService();
+    }
 
-              {
-                this.state.listas &&
-               <p id="mensagemNenhumaLista">
-                  Cadastre sua primeira lista de Compras, Clique no botão abaixo!
-               </p>
-              }
+    async componentDidMount() {
+        const listas =
+            await this.service.recuperarListas();
+        this.setState({ listas });
+    }
 
-              <div id="listagem">
-                  {listas}
-              </div>
 
-              <div id="areaBotao">
-                <div id="botaoNovaLista">
-                  <Link to="/criarlista">
-                    <img src={adicionar} alt="Nova Lista" />
-                   </Link>
+    //teste apagar lista
+    apagar = (lista) => {
+
+        //let { lista } = this.state;
+        const service = new ListaService();
+        this.setState({ lista })
+        service.apagar(lista);
+    }
+    render() {
+        const listas =
+            this.state.listas.map(lista => (
+                <div className="item">
+                    <Link
+                        to={
+                            {
+                                pathname: rotas.LISTA,
+                                state: { lista }
+                            }
+                        }
+                        key={lista._id}>
+                        <div className="item">{lista.nome}</div>
+
+
+                    </Link>
+                    <button onClick={() => this.apagar(lista)}>
+                        <img src={apagar} alt="apagar-lista" />
+                    </button>
+                    <Link to="/editarlista">
+                        <button id="botaoNovaLista">
+                            <img src={editar} alt="editar-lista" />
+                        </button>
+                    </Link>
+
                 </div>
-                
-              </div>
+            ));
 
+        return (
+            <div>
+                <Menu
+                    logo={logo}
+                    paginaAnterior="/"
+                    titulo="Lista de Compras" />
+
+                <div className="conteiner">
+                    <div>
+
+                        {
+                            /**
+                             * Neste trecho de código, 
+                             * o operador AND (&&) atua como
+                             * um operador de ligação entre a
+                             * condição lógica e o código de 
+                             * apresentação a ser renderizado.
+                             */
+                            !this.state.listas &&
+                            <h2>Minhas listas</h2>
+                        }
+
+                        {
+                            this.state.listas &&
+                            <p id="mensagemNenhumaLista">
+                                Clique no botão abaixo
+                                para cadastrar uma nova
+                                lista!
+                            </p>
+                        }
+
+                        <div className="listagem">
+                            {listas}
+
+
+
+                        </div>
+
+                        <div id="areaBotao">
+                            <Link to="/criarlista">
+                                <div id="botaoNovaLista">
+                                    <img src={adicionar} alt="Nova lista" />
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>   
-        
-      </div>
-    );
-  }
+        );
+    }
 }
-export default Listas;

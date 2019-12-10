@@ -8,8 +8,10 @@ export default class ListaService {
     constructor() {
         this.listas = [];
         this.api = axios.create({
-            baseURL: 'http://localhost:3001/listas'
+            baseURL: 'https://lista-compras-wmf-api.herokuapp.com/listas'
         });
+
+        this.apagar=this.apagar.bind(this);
     }
 
     async recuperarListas() {
@@ -17,10 +19,26 @@ export default class ListaService {
         this.listas = resposta.data;
         return this.listas;
     }
-
+    
     async salvar(lista) {
         await this.api.post('/', lista);
+        
     }
+    async atualizar(lista) {
+        await this.api.put(`/${lista._id}`);
+        
+    }
+
+    //testar metodo apagar
+    async apagar(lista) {
+        let resposta = await this.api.delete(`/${lista._id}`);
+        this.listas = resposta.data;
+        return this.listas;
+
+       // this.listas = resposta.data;
+       // return this.listas;  
+    }
+
 
     recuperarItens(termo) {
         /**
@@ -45,6 +63,11 @@ export default class ListaService {
         }
 
         return itensFiltrados;
+    }
+
+    //incluir item na lista
+    async incluirItem (lista, item){
+        await this.api.post('/', lista/item);
     }
 
 }

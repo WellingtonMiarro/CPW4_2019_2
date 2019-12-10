@@ -1,12 +1,12 @@
-@font-face{
+@font-face {
     font-family: 'item lista';
-    src:url(./IndieFlower-Regular.ttf)
+    src: url(./Schoolbell-Regular.ttf);
 }
 
-@font-face{
+@font-face {
     font-family: 'principal';
-    src:url(./Livvic-Regular.ttf)
+    src: url(./LexendDeca-Regular.ttf);
 }
 
-$fonte-principal:'principal';
-$fonte-lista:'item lista';
+$fonte-lista: 'item lista';
+$fonte-principal: 'principal';
